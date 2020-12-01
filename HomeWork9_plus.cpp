@@ -311,6 +311,9 @@ int (*class_three_day)[max_day_week];
 typedef class CourseSchedulingSystem
 {
 protected:
+    //assigned classNumber_Semester
+    int *assigned_classNumber_Semester;
+    int *current_classNumber_Semster;
     //format
     //information of course
     CI ci[max_courseNumber]; //i didt want to apply for space
@@ -325,7 +328,7 @@ public:
     ~CourseSchedulingSystem();
     void InitializeVariable();
     void InitializeInOutDegree();
-    Status ReadInformation(const char *filename);
+    Status ReadInformation(const char *filename,int max_semester);
     void DisplaySchedule();
     Status CountInDegreeNum();
     Status Schedule();
@@ -347,12 +350,14 @@ CSS::~CourseSchedulingSystem()
 CSS::CourseSchedulingSystem(const char *filename, int max_semester)
 {
     //read
-    this->ReadInformation(filename);
+    this->ReadInformation(filename, max_semester);
     //initialize
     this->maxSemester = max_semester;
     classSchedule = new char[max_semester + 1][max_day_week][max_class_day][max_numberBit]; //classSchedule[i] means semester i's class schedule
     class_two_day = new int[max_semester + 1][max_day_week];
     class_three_day = new int[max_semester + 1][max_day_week];
+    assigned_classNumber_Semester = new int[max_semester + 1];
+    current_classNumber_Semster = new int[max_semester + 1];
     this->InitializeVariable(); //initialize shedule two three
     this->InitializeInOutDegree();
     //schedule
@@ -572,8 +577,13 @@ Status CSS::FillClassIn(int course,int start)
     //traverse from semester 1 to max_semester
     for (i = start; i <= this->maxSemester;i++)
     {
+        if(current_classNumber_Semster[i]>=assigned_classNumber_Semester[i])
+        {
+            continue;
+        }
         if(FillInCorrectSemester(i,course)==OK)
         {
+            this->current_classNumber_Semster[i]++;
             return OK;
         }
     }
@@ -669,9 +679,13 @@ void CSS::InitializeVariable()
             class_three_day[i][j] = 0;
         }
     }
+    for (i = 0; i < this->maxSemester + 1;i++)
+    {
+        current_classNumber_Semster[i] = 0;
+    }
 }
 
-Status CSS::ReadInformation(const char *filename)
+Status CSS::ReadInformation(const char *filename, int max_semester)
 {
     ifstream in(filename, ios::in | ios::binary);
     if (in.is_open() == 0)
@@ -683,9 +697,14 @@ Status CSS::ReadInformation(const char *filename)
     char line[max_line];
     //to read preCourse
     char temp[max_line];
-    //record number of every course
-    int i = 0;
     //read the first line
+    int i;
+    for (i = 0; i < max_semester ; i++)
+    {
+        cin >> assigned_classNumber_Semester[i];
+    }
+    //record number of every course
+    i = 0;
     in.getline(line, max_line);
     while (1)
     {
