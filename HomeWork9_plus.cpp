@@ -321,24 +321,23 @@ protected:
     //number of course
     int totalNumber; //total number of course
     int maxSemester;
-    
 
 public:
     CourseSchedulingSystem(const char *filename, int max_semester = 8); //initialize
     ~CourseSchedulingSystem();
     void InitializeVariable();
     void InitializeInOutDegree();
-    Status ReadInformation(const char *filename,int max_semester);
+    Status ReadInformation(const char *filename, int max_semester);
     void DisplaySchedule();
     Status CountInDegreeNum();
     Status Schedule();
     Status If_Visit(int course);
-    Status FillClassIn(int course,int start=1);
+    Status FillClassIn(int course, int start = 1);
     Status FillInCorrectSemester(int semester, int course);
     Status FillInCorrectDay(int semester, int day, int course);
-    double CalVariance(int semester, int curday,int course);
+    double CalVariance(int semester, int curday, int course);
     Status If_DayAvaliable(int semester, int curday, int course);
-}CSS;
+} CSS;
 
 CSS::~CourseSchedulingSystem()
 {
@@ -349,8 +348,6 @@ CSS::~CourseSchedulingSystem()
 
 CSS::CourseSchedulingSystem(const char *filename, int max_semester)
 {
-    //read
-    this->ReadInformation(filename, max_semester);
     //initialize
     this->maxSemester = max_semester;
     classSchedule = new char[max_semester + 1][max_day_week][max_class_day][max_numberBit]; //classSchedule[i] means semester i's class schedule
@@ -358,10 +355,12 @@ CSS::CourseSchedulingSystem(const char *filename, int max_semester)
     class_three_day = new int[max_semester + 1][max_day_week];
     assigned_classNumber_Semester = new int[max_semester + 1];
     current_classNumber_Semster = new int[max_semester + 1];
+    //read
+    this->ReadInformation(filename, max_semester);
     this->InitializeVariable(); //initialize shedule two three
     this->InitializeInOutDegree();
     //schedule
-    if(this->Schedule()==ERROR)
+    if (this->Schedule() == ERROR)
     {
         cout << "error!" << endl;
         exit(-1);
@@ -373,10 +372,10 @@ CSS::CourseSchedulingSystem(const char *filename, int max_semester)
 Status CSS::Schedule()
 {
     int i, j;
-    while(1)
+    while (1)
     {
         //end state: doesnt exist one whose inDegree is more than 0
-        if(CountInDegreeNum()==NO)
+        if (CountInDegreeNum() == NO)
             break;
 
         LinkedStack<int> sta[2]; //to distingush
@@ -385,11 +384,11 @@ Status CSS::Schedule()
         //push them
         for (i = 0; i < this->totalNumber; i++)
         {
-            if (If_Visit(i)==YES)
+            if (If_Visit(i) == YES)
             {
                 sta[1].Push(i); //push
                 //fill the class in schedule
-                if(FillClassIn(i)==ERROR)
+                if (FillClassIn(i) == ERROR)
                 {
                     return ERROR;
                 }
@@ -405,64 +404,65 @@ Status CSS::Schedule()
             //the switcher will change so this is not one loop
             while (sta[switcher].IsEmpty() == NO)
             {
-            sta[switcher].Pop(p); //p is the father
-            pos = csi[p].semester + 1;
-            //to speed up
-            if (csi[p].outDegree == 0)
-                continue;
+                sta[switcher].Pop(p); //p is the father
+                pos = csi[p].semester + 1;
+                //to speed up
+                if (csi[p].outDegree == 0)
+                    continue;
 
-            //push p's child to switcher+1
-            for (i = 0; i < this->totalNumber; i++) //i refer to course i
-            {
-                for (j = 0; j < ci[i].num_preCourse; j++) //j refer to i's father
+                //push p's child to switcher+1
+                for (i = 0; i < this->totalNumber; i++) //i refer to course i
                 {
-                    if (strcmp(ci[i].preCourse[j], ci[p].number) == 0) //if j's father == p
+                    for (j = 0; j < ci[i].num_preCourse; j++) //j refer to i's father
                     {
-                        csi[i].inDegree--;
-                        
-                        if (csi[i].inDegree == 0)
+                        if (strcmp(ci[i].preCourse[j], ci[p].number) == 0) //if j's father == p
                         {
-                            sta[(switcher + 1) % 2].Push(i); //push
-                            //determine pos
-                            if (csi[i].semester != 0)
+                            csi[i].inDegree--;
+
+                            if (csi[i].inDegree == 0)
                             {
-                                //it has been initialize
-                                //p's semeseter mast bigger than pos for pos is the min positon of it
-                                if (csi[i].semester + 1 <= this->maxSemester || csi[i].outDegree == 0)
+                                sta[(switcher + 1) % 2].Push(i); //push
+                                //determine pos
+                                if (csi[i].semester != 0)
                                 {
-                                    //do not change
+                                    //it has been initialize
+                                    //p's semeseter mast bigger than pos for pos is the min positon of it
+                                    if (csi[i].semester + 1 <= this->maxSemester || csi[i].outDegree == 0)
+                                    {
+                                        //do not change
+                                    }
+                                    else
+                                    {
+                                        //error
+                                        cout << this->maxSemester << " "
+                                             << "error1" << endl;
+                                        return ERROR;
+                                    }
                                 }
                                 else
                                 {
-                                    //error
-                                    cout << this->maxSemester << " "<< "error1" << endl;
-                                    return ERROR;
+                                    //change
+                                    if (FillClassIn(i, pos) == ERROR)
+                                    {
+                                        return ERROR;
+                                    }
                                 }
                             }
-                            else
-                            {
-                                //change
-                                if (FillClassIn(i,pos) == ERROR)
-                                {
-                                    return ERROR;
-                                }
-                            }
-                        }
-                        
-                    }//end of if
-                }
-            }//end of for
-            //DisplaySchedule();
-            //switch
+
+                        } //end of if
+                    }
+                } //end of for
+                //DisplaySchedule();
+                //switch
             }
             switcher = (switcher + 1) % 2;
-        }//end of while
-    }//end of while
+        } //end of while
+    }     //end of while
 
     //process isolate course
-    for (i = 0; i < totalNumber;i++)
+    for (i = 0; i < totalNumber; i++)
     {
-        if (csi[i].semester==0&&csi[i].outDegree == 0 && ci[i].num_preCourse == 0)  //isolate and have not visited
+        if (csi[i].semester == 0 && csi[i].outDegree == 0 && ci[i].num_preCourse == 0) //isolate and have not visited
         {
             //visit
             FillClassIn(i);
@@ -479,52 +479,52 @@ Status CSS::FillInCorrectDay(int semester, int day, int course)
     int no = -1, no_after = -1;
     int no_start = max_class_day, no_after_start = max_class_day;
     int i;
-    if(first_class[times]==2)
+    if (first_class[times] == 2)
     {
         no_start = 0;
     }
-    else if(first_class[times]==3)
+    else if (first_class[times] == 3)
     {
         no_start = 1;
     }
-    if(second_class[times]==2)
+    if (second_class[times] == 2)
     {
         no_after_start = 0;
     }
-    else if(second_class[times]==3)
+    else if (second_class[times] == 3)
     {
         no_after_start = 1;
     }
-    
-    for (i = no_start; i < max_class_day;i+=2)
+
+    for (i = no_start; i < max_class_day; i += 2)
     {
-        if(classSchedule[semester][day][i][0]!=0)
+        if (classSchedule[semester][day][i][0] != 0)
             continue;
         no = i;
         break;
     }
-    for (i = no_after_start; i < max_class_day;i+=2)
+    for (i = no_after_start; i < max_class_day; i += 2)
     {
         if (classSchedule[semester][day_after][i][0] != 0)
             continue;
         no_after = i;
         break;
     }
-    if(no==-1)    //not find
+    if (no == -1) //not find
         return ERROR;
     strcpy(classSchedule[semester][day][no], ci[course].number);
-    if(no_after!=-1)
+    if (no_after != -1)
         strcpy(classSchedule[semester][day_after][no_after], ci[course].number);
     return OK;
 }
 
-Status CSS::FillInCorrectSemester(int semester,int course)
+Status CSS::FillInCorrectSemester(int semester, int course)
 {
     //record
     int times = ci[course].time;
     //variable
-    double min = 1024;  //inf
-    int res_day = -1; //none
+    double min = 1024; //inf
+    int res_day = -1;  //none
     int res_day_after;
     //loop variable
     int i;
@@ -532,18 +532,18 @@ Status CSS::FillInCorrectSemester(int semester,int course)
     //deal with the puzzle
 
     //calculate the average of 2 3 first
-    for (i = 0; i < max_day_week;i++)
+    for (i = 0; i < max_day_week; i++)
     {
         //loop the first day
         //if avaliable
-        if(If_DayAvaliable(semester,i,course)==NO)
+        if (If_DayAvaliable(semester, i, course) == NO)
             continue;
 
         //calculate the weight
         double variance = CalVariance(semester, i, course);
 
         //compare
-        if(variance<min)
+        if (variance < min)
         {
             min = variance;
             res_day = i;
@@ -551,13 +551,13 @@ Status CSS::FillInCorrectSemester(int semester,int course)
     }
 
     //error condition
-    if(res_day==-1)
+    if (res_day == -1)
     {
         return ERROR;
     }
 
     //fill the day
-    if(FillInCorrectDay(semester, res_day, course)==ERROR)
+    if (FillInCorrectDay(semester, res_day, course) == ERROR)
         return ERROR;
     //already find the correct semester
     csi[course].semester = semester;
@@ -571,19 +571,19 @@ Status CSS::FillInCorrectSemester(int semester,int course)
     return OK;
 }
 
-Status CSS::FillClassIn(int course,int start)
+Status CSS::FillClassIn(int course, int start)
 {
     int i;
     //traverse from semester 1 to max_semester
-    for (i = start; i <= this->maxSemester;i++)
+    for (i = start; i <= this->maxSemester; i++)
     {
-        if(current_classNumber_Semster[i]>=assigned_classNumber_Semester[i])
+        if (current_classNumber_Semster[i - 1] >= assigned_classNumber_Semester[i - 1])
         {
             continue;
         }
-        if(FillInCorrectSemester(i,course)==OK)
+        if (FillInCorrectSemester(i, course) == OK)
         {
-            this->current_classNumber_Semster[i]++;
+            this->current_classNumber_Semster[i - 1]++;
             return OK;
         }
     }
@@ -597,6 +597,14 @@ void CSS::DisplaySchedule()
     // {
     //     cout << ci[i].number << " " << csi[i].semester<<" "<<csi[i].inDegree << endl;
     // }
+    for (i = 0; i < this->maxSemester; i++)
+    {
+        if (current_classNumber_Semster[i] != assigned_classNumber_Semester[i])
+        {
+            cout << "can't schedule it" << endl;
+            return;
+        }
+    }
     for (i = 1; i <= this->maxSemester; i++)
     {
         cout << "semester" << i << ":" << endl;
@@ -604,7 +612,7 @@ void CSS::DisplaySchedule()
         {
             if (csi[t1].semester == i)
                 cout << ci[t1].number << " time:" << ci[t1].time
-                <<" semester:"<<csi[t1].semester << endl;
+                     << " semester:" << csi[t1].semester << endl;
         }
         cout << endl;
         for (k = 0; k < max_class_day; k++)
@@ -679,7 +687,7 @@ void CSS::InitializeVariable()
             class_three_day[i][j] = 0;
         }
     }
-    for (i = 0; i < this->maxSemester + 1;i++)
+    for (i = 0; i < this->maxSemester + 1; i++)
     {
         current_classNumber_Semster[i] = 0;
     }
@@ -699,9 +707,9 @@ Status CSS::ReadInformation(const char *filename, int max_semester)
     char temp[max_line];
     //read the first line
     int i;
-    for (i = 0; i < max_semester ; i++)
+    for (i = 0; i < max_semester; i++)
     {
-        cin >> assigned_classNumber_Semester[i];
+        in >> assigned_classNumber_Semester[i];
     }
     //record number of every course
     i = 0;
@@ -712,8 +720,8 @@ Status CSS::ReadInformation(const char *filename, int max_semester)
         if (in.good() == 0)
             break;
         //input all by sscanf
-        sscanf(line, "%s %s %d %d %[^\n]", (char*)(&ci[i].number),
-               (char*)(&ci[i].name), &ci[i].time, &ci[i].limitTerm,
+        sscanf(line, "%s %s %d %d %[^\n]", (char *)(&ci[i].number),
+               (char *)(&ci[i].name), &ci[i].time, &ci[i].limitTerm,
                temp);
         //input preCourse by stringstream
         stringstream ss;
@@ -749,9 +757,9 @@ Status CSS::CountInDegreeNum()
 
 Status CSS::If_Visit(int course)
 {
-    if (csi[course].semester == 0                                   //not visit yet
-    && csi[course].inDegree <= 0                                    //no inDegree
-    && (csi[course].outDegree > 0 || ci[course].num_preCourse > 0)) //not isolate
+    if (csi[course].semester == 0                                       //not visit yet
+        && csi[course].inDegree <= 0                                    //no inDegree
+        && (csi[course].outDegree > 0 || ci[course].num_preCourse > 0)) //not isolate
         return YES;
     return NO;
 }
@@ -800,28 +808,25 @@ double CSS::CalVariance(int semester, int curday, int course)
     return sum2 + sum3;
 }
 
-Status CSS::If_DayAvaliable(int semester,int curday,int course)
+Status CSS::If_DayAvaliable(int semester, int curday, int course)
 {
     int times = ci[course].time;
-    if ((first_class[times] == 2 && class_two_day[semester][curday] >= 2) 
-    || (first_class[times] == 3 && class_three_day[semester][curday] >= 2) 
-    || (second_class[times] == 2 && class_two_day[semester][curday + 2 - 5 >= 0 ? curday + 2 - 5 : curday + 2] >= 2) 
-    || (second_class[times] == 3 && class_three_day[semester][curday + 2 - 5 >= 0 ? curday + 2 - 5 : curday + 2] >= 2))
+    if ((first_class[times] == 2 && class_two_day[semester][curday] >= 2) || (first_class[times] == 3 && class_three_day[semester][curday] >= 2) || (second_class[times] == 2 && class_two_day[semester][curday + 2 - 5 >= 0 ? curday + 2 - 5 : curday + 2] >= 2) || (second_class[times] == 3 && class_three_day[semester][curday + 2 - 5 >= 0 ? curday + 2 - 5 : curday + 2] >= 2))
         return NO;
     return YES;
 }
 
-// int main()
-// {
-//     const char *file = "D:\\vscode\\C++\\.vscode\\test.txt";
-//     CSS css(file);
-// }
-
-int main(int argc,char* argv[])
+int main()
 {
-    if(argc>1)
-    {
-        const char *file = argv[1];
-        CSS css(file);
-    }
+    const char *file = "D:\\vscode\\C++\\.vscode\\test2.txt";
+    CSS css(file);
 }
+
+// int main(int argc,char* argv[])
+// {
+//     if(argc>1)
+//     {
+//         const char *file = argv[1];
+//         CSS css(file);
+//     }
+// }
