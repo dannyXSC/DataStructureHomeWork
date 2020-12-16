@@ -1,56 +1,56 @@
-/*1951565 Èí02 Ð»Ë¼³Ì*/
+/*1951565 ï¿½ï¿½02 Ð»Ë¼ï¿½ï¿½*/
 
 /*------------------------------------------------------------------------
-¿¼ÊÔ±¨ÃûÏµÍ³
-¹¦ÄÜ£º
-    1¡¢ÊäÈë¿¼ÉúÐÅÏ¢
-    2¡¢Êä³ö¿¼ÉúÐÅÏ¢
-    3¡¢²éÑ¯¿¼ÉúÐÅÏ¢
-    4¡¢Ìí¼Ó¿¼ÉúÐÅÏ¢
-    5¡¢ÐÞ¸Ä¿¼ÊÔÐÅÏ¢
-    6¡¢É¾³ý¿¼ÉúÐÅÏ¢
-¶ÔÓ¦º¯Êý£º
-    1¡¢Status input(int no,string name,string sex,int age,string choice);
-    2¡¢Status output(int no);
-    3¡¢Status inquire(int no);
-    4¡¢Status add(int pos,int no,string name,string sex,int age,string choice);
-    5¡¢Status update_no(int no_past,int no_cur);
+ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ÏµÍ³
+ï¿½ï¿½ï¿½Ü£ï¿½
+    1ï¿½ï¿½ï¿½ï¿½ï¿½ë¿¼ï¿½ï¿½ï¿½ï¿½Ï¢
+    2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+    3ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+    4ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+    5ï¿½ï¿½ï¿½Þ¸Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+    6ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    1ï¿½ï¿½Status input(int no,string name,string sex,int age,string choice);
+    2ï¿½ï¿½Status output(int no);
+    3ï¿½ï¿½Status inquire(int no);
+    4ï¿½ï¿½Status add(int pos,int no,string name,string sex,int age,string choice);
+    5ï¿½ï¿½Status update_no(int no_past,int no_cur);
        Status update_name(int no,string name);
        Status update_sex(int no,string sex);
        Status update_age(int no,int age);
        Status update_choice(int no,string choice);
-    6¡¢Status delete(int no);
-¸½¼Óº¯Êý£º
-Ë¼Ïë£º
-²Î¿¼Êý¾Ý¿âµÄÖªÊ¶£º
-    ¾ø¶Ô²»ÄÜ°ÑËùÓÐµÄÐÅÏ¢ÈûÔÚÒ»¸öÊý×éÀï£¨Ô­×ÓÐÔ£©
-    ¿¼ÂÇ£º
-        ±í1£¨¸öÈË»ù±¾ÊôÐÔ±í£©£º
-            ´æ·Å¿¼ºÅ¡¢ÐÕÃû¡¢ÐÔ±ð¡¢ÄêÁä£¨ÎÒÏ£ÍûÕâ¸öÄêÁä¿ÉÒÔÍ³Ò»±ä»¯£©
-        ±í2£¨¸öÈËÐÅÏ¢±í£©£º
-            ´æ·Å¿¼ºÅ¡¢±¨¿¼ÀàÐÍ
-        ±í1¡¢±í2¶¼²ÉÓÃÁ´Ê½´æ´¢£¬×¢Òâ£¬ÔÚ¸Ä±ä¿¼ºÅµÄÊ±ºò£¬Á½ÕÅ±í¶¼Òª¸Ä±ä
+    6ï¿½ï¿½Status delete(int no);
+ï¿½ï¿½ï¿½Óºï¿½ï¿½ï¿½ï¿½ï¿½
+Ë¼ï¿½ë£º
+ï¿½Î¿ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ÖªÊ¶ï¿½ï¿½
+    ï¿½ï¿½ï¿½Ô²ï¿½ï¿½Ü°ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï£¨Ô­ï¿½ï¿½ï¿½Ô£ï¿½
+    ï¿½ï¿½ï¿½Ç£ï¿½
+        ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½
+            ï¿½ï¿½Å¿ï¿½ï¿½Å¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ä£¨ï¿½ï¿½Ï£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³Ò»ï¿½ä»¯ï¿½ï¿½
+        ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            ï¿½ï¿½Å¿ï¿½ï¿½Å¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½æ´¢ï¿½ï¿½×¢ï¿½â£¬ï¿½Ú¸Ä±ä¿¼ï¿½Åµï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½Òªï¿½Ä±ï¿½
 ------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------
-ËùÓÐµÄÍ·ÎÄ¼þ
+ï¿½ï¿½ï¿½Ðµï¿½Í·ï¿½Ä¼ï¿½
 ------------------------------------------------------------------------*/
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <string.h>
-#include <string>  //ÓÃÒ»µãµãstring
-#include <iomanip> //Êä³ö¸ñÊ½¿ØÖÆÍ·ÎÄ¼þ
+#include <string>  //ï¿½ï¿½Ò»ï¿½ï¿½ï¿½string
+#include <iomanip> //ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½Í·ï¿½Ä¼ï¿½
 using namespace std;
 
 /*------------------------------------------------------------------------
-¹«¹²º¯Êý
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 ------------------------------------------------------------------------*/
 #if 1
 
 #ifndef _WIN32
 #define _strcmpi strcasecmp
 #endif
-//½áÊøÌáÊ¾(Ö»Ö§³Ö×Ö·ûÊäÈë£¬ÔÝ²»Ö§³Ö»Ø³µ)
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾(Ö»Ö§ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½Ý²ï¿½Ö§ï¿½Ö»Ø³ï¿½)
 void wait_for_end(const char *prompt, const char *key)
 {
     char input_str[1024];
@@ -60,12 +60,12 @@ void wait_for_end(const char *prompt, const char *key)
         cout << prompt;
         cin >> input_str;
 
-        /* Çå¿Õ»º³åÇø */
+        /* ï¿½ï¿½Õ»ï¿½ï¿½ï¿½ï¿½ï¿½ */
         cin.clear();
         cin.ignore(1024, '\n');
         //		fgets(input_str, sizeof(input_str), stdin);
 
-        /* ÊäÈëÔÚºÏÀí·¶Î§ÄÚÔòÍË³öÊäÈëÑ­»· */
+        /* ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½ï¿½ï¿½Î§ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ */
         if (_strcmpi(input_str, key) == 0)
             break;
     }
@@ -82,7 +82,7 @@ void wait_for_enter()
 void safe_cin_positive_integer(int &x, const char *tips)
 {
     cout << tips;
-    while (1) //¿¼ÂÇÒ»²¿·ÖÊäÈë´íÎóÎÊÌâ
+    while (1) //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     {
         if (scanf("%d", &x) != 1)
         {
@@ -106,18 +106,18 @@ void safe_cin_positive_integer(int &x, const char *tips)
 #endif
 
 /*------------------------------------------------------------------------
-Ê×ÏÈÊÇÑ§Éú»ù±¾ÐÅÏ¢Àà
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½
 ------------------------------------------------------------------------*/
 #if 1
-//ÉùÃ÷
+//ï¿½ï¿½ï¿½ï¿½
 class STUDENT
 {
 private:
-    int no;      //Ñ§ºÅ
-    string name; //ÐÕÃû
-    string sex;  //ÐÔ±ð
-    int age;     //ÄêÁä
-    string pick; //±¨¿¼ÖÖÀà
+    int no;      //Ñ§ï¿½ï¿½
+    string name; //ï¿½ï¿½ï¿½ï¿½
+    string sex;  //ï¿½Ô±ï¿½
+    int age;     //ï¿½ï¿½ï¿½ï¿½
+    string pick; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 public:
     STUDENT();
     STUDENT(int n, string na, string se, int ag, string pic) : no(n), name(na), sex(se), age(ag), pick(pic){};
@@ -135,7 +135,7 @@ public:
     string get_pick() const;
 };
 
-//ÊµÏÖ
+//Êµï¿½ï¿½
 int STUDENT::get_no() const
 {
     return this->no;
@@ -219,12 +219,12 @@ STUDENT::operator int()
 #endif
 
 /*------------------------------------------------------------------------
-¼òµ¥µÄÁ´±í
+ï¿½òµ¥µï¿½ï¿½ï¿½ï¿½ï¿½
 ------------------------------------------------------------------------*/
 #if 1
-/*¶¨ÒåÐÂÀàÐÍ*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 typedef int Status;
-/*ºê¶¨Òå*/
+/*ï¿½ê¶¨ï¿½ï¿½*/
 #define OK 1
 #define ERROR 0
 #define LOVERFLOW -1
@@ -232,42 +232,42 @@ typedef int Status;
 #define TRUE 1
 #define FALSE 0
 
-//Á´±í½Úµã
+//ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½
 typedef struct StudentNodeList
 {
     STUDENT ele;
-    StudentNodeList *next; //Ö¸ÏòÍ·½áµãµÄÖ¸Õë
+    StudentNodeList *next; //Ö¸ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
 } NodeList, *ListPointer;
 
-//Á´±íÉùÃ÷
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 class StudentList
 {
 private:
-    ListPointer head; //Ö¸ÏòÁ´±íµÄÍ·½áµã
-    int num;          //¼ÇÂ¼Á´±í½ÚµãÊý
+    ListPointer head; //Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½
+    int num;          //ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½
 public:
-    StudentList();                                 //¹¹Ôìº¯Êý
-    ~StudentList();                                //Îö¹¹º¯Êý
-    Status ClearList();                            //Çå¿Õ±í ²»»á°ÑÍ·½áµãÏû³ý
-    Status ListEmpty();                            //ÅÐ¶ÏÊÇ²»ÊÇ¿Õ±í ÊÇ·µ»Øtrue ²»ÊÇ·µ»Øfalse
-    int ListLength();                              //Çó³¤¶È
-    Status GetElem(int pos, STUDENT *e);           //È¡±íÖÐÔªËØ
-    Status GetElem_by_no(int no, STUDENT *e);      //¸ù¾ÝÑ§ºÅÈ¡±íÖÐÔªËØ
-    int LocateElem(int no);                        //ÇónoµÄÎ»ÖÃ£¬Ã»ÕÒµ½·µ»ØERROR£¬·ñÔò·µ»Øpos
-    Status ListInsert(int pos, STUDENT e);         //ÔÚÖ¸¶¨Î»ÖÃ²åÈëÒ»¸öÔªËØ ¿ÉÒÔ²åÈëµÄÎ»ÖÃÊÇ[1,n+1]
-    Status ListInsert_by_no(STUDENT e);            //°´Ñ§ºÅË³Ðò²åÈë
-    Status ListDelete_by_pos(int pos, STUDENT *e); //É¾³ýÖ¸¶¨Î»ÖÃµÄÔªËØ£¬²¢½«±»É¾³ýÔªËØ·µ»ØeÖÐ ¿ÉÒÔÉ¾³ýµÄ·¶Î§ÊÇ[1,n]
-    Status ListDelete(int no, STUDENT *e);         //É¾³ýÖ¸¶¨Ñ§ºÅµÄÔªËØ£¬²¢½«±»É¾³ýµÄÔªËØ·µ»ØeÖÐ
-    Status Update(int no, STUDENT *e);             //¸ü¸Ä
+    StudentList();                                 //ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
+    ~StudentList();                                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    Status ClearList();                            //ï¿½ï¿½Õ±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    Status ListEmpty();                            //ï¿½Ð¶ï¿½ï¿½Ç²ï¿½ï¿½Ç¿Õ±ï¿½ ï¿½Ç·ï¿½ï¿½ï¿½true ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½false
+    int ListLength();                              //ï¿½ó³¤¶ï¿½
+    Status GetElem(int pos, STUDENT *e);           //È¡ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+    Status GetElem_by_no(int no, STUDENT *e);      //ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+    int LocateElem(int no);                        //ï¿½ï¿½noï¿½ï¿½Î»ï¿½Ã£ï¿½Ã»ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ERRORï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½pos
+    Status ListInsert(int pos, STUDENT e);         //ï¿½ï¿½Ö¸ï¿½ï¿½Î»ï¿½Ã²ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ôªï¿½ï¿½ ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½[1,n+1]
+    Status ListInsert_by_no(STUDENT e);            //ï¿½ï¿½Ñ§ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½
+    Status ListDelete_by_pos(int pos, STUDENT *e); //É¾ï¿½ï¿½Ö¸ï¿½ï¿½Î»ï¿½Ãµï¿½Ôªï¿½Ø£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½Ôªï¿½Ø·ï¿½ï¿½ï¿½eï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½Ä·ï¿½Î§ï¿½ï¿½[1,n]
+    Status ListDelete(int no, STUDENT *e);         //É¾ï¿½ï¿½Ö¸ï¿½ï¿½Ñ§ï¿½Åµï¿½Ôªï¿½Ø£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø·ï¿½ï¿½ï¿½eï¿½ï¿½
+    Status Update(int no, STUDENT *e);             //ï¿½ï¿½ï¿½ï¿½
     Status Sort();
 };
-//ÊµÏÖ
+//Êµï¿½ï¿½
 Status StudentList::Sort()
 {
     if (this->head->next == NULL)
         return OK;
     ListPointer p = this->head->next, q = p->next, r;
-    p->next = NULL; //¹Ø±Õ
+    p->next = NULL; //ï¿½Ø±ï¿½
     while (q)
     {
         r = q;
@@ -313,21 +313,21 @@ Status StudentList::ListInsert_by_no(STUDENT e)
 {
     ListPointer p = this->head, s;
     int pos = 0;
-    //ÕÒµ½µÚÐ¡ÓÚeµÄ×îºóÒ»¸öÎ»ÖÃ
+    //ï¿½Òµï¿½ï¿½ï¿½Ð¡ï¿½ï¿½eï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Î»ï¿½ï¿½
     while (p->next && e.get_no() > p->next->ele.get_no())
     {
         p = p->next;
         pos++;
     }
 
-    //ÔÚpµÄÎ»ÖÃ´¦²åÈëÒ»¸öÔªËØ
+    //ï¿½ï¿½pï¿½ï¿½Î»ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ôªï¿½ï¿½
     s = new NodeList;
     if (s == NULL)
         return LOVERFLOW;
     s->next = p->next;
     p->next = s;
 
-    //¸³Öµ
+    //ï¿½ï¿½Öµ
     s->ele = e;
     return OK;
 }
@@ -336,7 +336,7 @@ StudentList::StudentList()
     this->head = new NodeList;
     if (this->head == NULL)
     {
-        //Ò»°ãÀ´Ëµ×îºÃ¸øÈ«¾Ö±äÁ¿¸³Öµ²¢ÍË³ö
+        //Ò»ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½Ã¸ï¿½È«ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½Ë³ï¿½
         exit(LOVERFLOW);
     }
     this->head->next = NULL;
@@ -344,7 +344,7 @@ StudentList::StudentList()
 StudentList::~StudentList()
 {
     ListPointer p = this->head, q;
-    //Ë³ÐòÏû³ý
+    //Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     do
     {
         q = p;
@@ -388,13 +388,13 @@ int StudentList::ListLength()
 }
 Status StudentList::GetElem(int pos, STUDENT *e)
 {
-    ListPointer p = this->head->next; //Ö¸ÏòÍ·½áµã
+    ListPointer p = this->head->next; //Ö¸ï¿½ï¿½Í·ï¿½ï¿½ï¿½
     int i;
     for (i = 1; i < pos && p; i++)
     {
         p = p->next;
     }
-    if (p == NULL || i > pos) //p=NULL¼´ÕÒ²»µ½ÁË i>pos¼´³õÊ¼×´Ì¬²»ºÏÀí
+    if (p == NULL || i > pos) //p=NULLï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ i>posï¿½ï¿½ï¿½ï¿½Ê¼×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     {
         return ERROR;
     }
@@ -415,36 +415,36 @@ int StudentList::LocateElem(int no)
 Status StudentList::ListInsert(int pos, STUDENT e)
 {
     /*
-    //ÅÐ¶ÏÊÇ·ñÔ½½ç1
+    //ï¿½Ð¶ï¿½ï¿½Ç·ï¿½Ô½ï¿½ï¿½1
     int len=this->ListLength();
     if(!(pos>=1&&pos<=len+1))
         return ERROR;
     */
-    ListPointer p = head, s; //sÓÃÀ´ÉêÇëÐÂµÄ½Úµã
-    int i = 0;               //³õÊ¼Î»ÖÃÊÇÍ·½áµã
+    ListPointer p = head, s; //sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÂµÄ½Úµï¿½
+    int i = 0;               //ï¿½ï¿½Ê¼Î»ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½
 
-    //Ñ°ÕÒµÚpos-1¸ö½Úµã
-    while (p && i < pos - 1) //ÕâÀïÖ»Ð´pµÄÔ­ÒòÊÇÎÒÖ»ÐèÒªÈ·¶¨pÊÇ´æÔÚµÄ£¬¾Í¿ÉÒÔÔÚpºóÃæÌí¼ÓÄÚÈÝ
+    //Ñ°ï¿½Òµï¿½pos-1ï¿½ï¿½ï¿½Úµï¿½
+    while (p && i < pos - 1) //ï¿½ï¿½ï¿½ï¿½Ö»Ð´pï¿½ï¿½Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ÒªÈ·ï¿½ï¿½pï¿½Ç´ï¿½ï¿½ÚµÄ£ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     {
         i++;
         p = p->next;
     }
 
-    //ÅÐ¶Ï´íÎó
+    //ï¿½Ð¶Ï´ï¿½ï¿½ï¿½
     if (p == NULL || i > pos - 1)
     {
         return ERROR;
     }
 
-    //µ½ÕâÀïÎªÖ¹pÖ¸Ïòi-1¸ö½Úµã
-    //ÉêÇëÐÂ½Úµã
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÖ¹pÖ¸ï¿½ï¿½i-1ï¿½ï¿½ï¿½Úµï¿½
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Â½Úµï¿½
     s = new NodeList;
     if (s == NULL)
     {
         return LOVERFLOW;
     }
-    s->ele = e; //¸³Öµ
-    //Î¬»¤Á´±í
+    s->ele = e; //ï¿½ï¿½Öµ
+    //Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     s->next = p->next;
     p->next = s;
     return OK;
@@ -454,21 +454,21 @@ Status StudentList::ListDelete_by_pos(int pos, STUDENT *e)
     ListPointer p = this->head, q;
     int i = 0;
 
-    //Ñ°ÕÒµÚpos-1¸ö½Úµã
-    while (p->next && i < pos - 1) //ÕâÀïÐ´p->nextµÄÔ­ÒòÊÇÒª±£Ö¤pµÄnext±ØÐë¿ÉÉ¾³ý
+    //Ñ°ï¿½Òµï¿½pos-1ï¿½ï¿½ï¿½Úµï¿½
+    while (p->next && i < pos - 1) //ï¿½ï¿½ï¿½ï¿½Ð´p->nextï¿½ï¿½Ô­ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Ö¤pï¿½ï¿½nextï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½
     {
         i++;
         p = p->next;
     }
 
-    //´íÎóÅÅ³ý2  ¸ü¼Ó¿ìËÙ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Å³ï¿½2  ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½
     if (p->next == NULL || i > pos - 1)
     {
         return ERROR;
     }
 
-    //Î¬»¤Á´±í
-    //´ËÊ±pÖ¸Ïòi-1
+    //Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    //ï¿½ï¿½Ê±pÖ¸ï¿½ï¿½i-1
     q = p->next;
     p->next = q->next;
 
@@ -480,7 +480,7 @@ Status StudentList::ListDelete(int no, STUDENT *e)
 {
     ListPointer p = this->head, q;
     int pos = 0;
-    //ÕÒµ½µÚi-1¸öÎ»ÖÃ
+    //ï¿½Òµï¿½ï¿½ï¿½i-1ï¿½ï¿½Î»ï¿½ï¿½
     while (p->next && no != int(p->next->ele))
     {
         p = p->next;
@@ -491,11 +491,11 @@ Status StudentList::ListDelete(int no, STUDENT *e)
         return ERROR;
     }
 
-    //Î¬»¤
+    //Î¬ï¿½ï¿½
     q = p->next;
     p->next = q->next;
 
-    //¸³Öµ²¢É¾³ý
+    //ï¿½ï¿½Öµï¿½ï¿½É¾ï¿½ï¿½
     *e = q->ele;
     delete q;
     return OK;
@@ -509,7 +509,7 @@ menu
 #if 1
 #ifdef _WIN32
 #include <conio.h> //_getche
-#else
+#elif __Linux__
 #include <termio.h>
 #include <unistd.h>
 char _getch()
@@ -536,34 +536,34 @@ char _getche()
     return c;
 }
 #endif
-/*ºê¶¨ÒåºÍ³£±äÁ¿*/
-static const int Unit_width = 30; //²Ëµ¥µÄ»ù±¾¿í¶ÈÎª30
+/*ï¿½ê¶¨ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½ï¿½*/
+static const int Unit_width = 30; //ï¿½Ëµï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª30
 const int MAX_ORDER = 256;
 const int MAX_BORDER = 5;
 
-//ÉùÃ÷
+//ï¿½ï¿½ï¿½ï¿½
 class SIMPLE_MENU
 {
 private:
-    const char **menu; //menu±ØÐëÔÚ¹¹Ôìº¯ÊýÖÐ³õÊ¼»¯menuÓ¦¸ÃÊÇÖ¸Ïò Ö¸Ïò³£Á¿µÄÖ¸Õë µÄÖ¸Õë
-    int width;         //Ã¿¸ö²Ëµ¥ÏîµÄ¿í¶È
+    const char **menu; //menuï¿½ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ìº¯ï¿½ï¿½ï¿½Ð³ï¿½Ê¼ï¿½ï¿½menuÓ¦ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ ï¿½ï¿½Ö¸ï¿½ï¿½
+    int width;         //Ã¿ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½
 
-    bool if_sensitive; //±êÖ¾ ¿ÉÑ¡ÏîÖÐÊÇ·ñÃô¸Ð´óÐ¡Ð´
-    const char *key;   //¿ÉÑ¡ÔñÏî
+    bool if_sensitive; //ï¿½ï¿½Ö¾ ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ð¡Ð´
+    const char *key;   //ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½
 
-    bool if_exist_title; //±êÖ¾ ÊÇ·ñÓÐ±êÌâ
-    const char *title;   //´æ´¢±êÌâÄÚÈÝ
+    bool if_exist_title; //ï¿½ï¿½Ö¾ ï¿½Ç·ï¿½ï¿½Ð±ï¿½ï¿½ï¿½
+    const char *title;   //ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-    bool if_exist_order; //±êÖ¾ ÊÇ·ñÓÐÌáÊ¾
-    char order[MAX_ORDER]; //´¢´æ ÌáÊ¾(order)
+    bool if_exist_order; //ï¿½ï¿½Ö¾ ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
+    char order[MAX_ORDER]; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ê¾(order)
 
-    int item_nums; //menuÖÐÓÐ¶àÉÙ¸öÌõÄ¿
+    int item_nums; //menuï¿½ï¿½ï¿½Ð¶ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½Ä¿
 
-    char border[MAX_BORDER]; //±ß¿òµÄ·ûºÅ
+    char border[MAX_BORDER]; //ï¿½ß¿ï¿½Ä·ï¿½ï¿½ï¿½
 
-    /*ÔÝÊ±²»ÓÃ*/
-    int arrangement; //0±íÊ¾´ÓÉÏµ½ÏÂ1±íÊ¾´Ó×óµ½ÓÒ
-    int col;         //±íÊ¾¶àÁÐÏÔÊ¾
+    /*ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½*/
+    int arrangement; //0ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½1ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    int col;         //ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
 
 public:
     SIMPLE_MENU(const char **menu, bool if_sensitive = false, bool if_exist_title = false,
@@ -571,13 +571,13 @@ public:
                 const char *order = "", const char *border = "=", int width = Unit_width) : menu(menu), width(width), if_sensitive(if_sensitive), key(key),
                                                                                             if_exist_title(if_exist_title), title(title), if_exist_order(if_exist_order)
     {
-        //ÔÚ¹¹Ôìº¯ÊýÖÐ¼ÆËãitemµÄÏîÄ¿½ÚÊ¡Ê±¼ä
+        //ï¿½Ú¹ï¿½ï¿½ìº¯ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½itemï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½Ê¡Ê±ï¿½ï¿½
         int cnt = 0;
         while (menu[cnt])
             cnt++;
         this->item_nums = cnt;
 
-        //ÔÝÊ±²»ÓÃµÄË½ÓÐ±äÁ¿
+        //ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ãµï¿½Ë½ï¿½Ð±ï¿½ï¿½ï¿½
         this->arrangement = 0;
         this->col = 1;
 
@@ -587,15 +587,15 @@ public:
     };
     ~SIMPLE_MENU() {}
     friend void wait_for_end(const char *prompt, const char *key);
-    const char display_menu();                //Êä³ö±í
-    const char *get_menuitem(const char sel); //²é¿´menuÖÐÊÇ·ñÓÐsel,²¢·µ»Ø
+    const char display_menu();                //ï¿½ï¿½ï¿½ï¿½ï¿½
+    const char *get_menuitem(const char sel); //ï¿½é¿´menuï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½sel,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
 const char *SIMPLE_MENU::get_menuitem(const char sel)
 {
     int i;
     for (i = 0; menu[i]; i++)
-        if (this->menu[i][0] == sel) //Ã¿¸ö²Ëµ¥×Ö·û´®µÄµÚ[0]¸ö×Ö·ûÊÇ·ñÑ¡ÔñÏî
+        if (this->menu[i][0] == sel) //Ã¿ï¿½ï¿½ï¿½Ëµï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Äµï¿½[0]ï¿½ï¿½ï¿½Ö·ï¿½ï¿½Ç·ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½
             return menu[i];
 
     return NULL;
@@ -605,10 +605,10 @@ const char SIMPLE_MENU::display_menu()
     char sel;
     int i, j;
     int loop = 1;
-    cout << setiosflags(ios::left); //×ó¶ÔÆë
+    cout << setiosflags(ios::left); //ï¿½ï¿½ï¿½ï¿½ï¿½
     while (loop)
     {
-        if (this->if_exist_title) //Êä³ö±êÌâ
+        if (this->if_exist_title) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         {
             cout << title << endl;
         }
@@ -623,7 +623,7 @@ const char SIMPLE_MENU::display_menu()
                 cout << setw(this->width) << menu[i];
             cout << endl;
         }
-        for (i = 0; !arrangement && i < (this->item_nums + col - 1) / col; i++) //¿ÉÄÜÓÐµãÎÊÌâ
+        for (i = 0; !arrangement && i < (this->item_nums + col - 1) / col; i++) //ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
         {
             for (j = 0; j < col && menu[i + j * (this->item_nums / col) + (j > this->item_nums % col ? this->item_nums % col : j)]; j++)
                 cout << setw(this->width) << menu[i + j * (this->item_nums / col) + (j > this->item_nums % col ? this->item_nums % col : j)];
@@ -651,7 +651,7 @@ const char SIMPLE_MENU::display_menu()
                 loop = 0;
                 break;
             }
-        /* Ñ¡Ôñ´íÎóÔò¸ø³öÌáÊ¾²¢ÔÙ´Î´òÓ¡²Ëµ¥ */
+        /* Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Ù´Î´ï¿½Ó¡ï¿½Ëµï¿½ */
         if (loop)
             cout << endl
                  << endl
@@ -666,20 +666,20 @@ const char SIMPLE_MENU::display_menu()
 #endif
 
 /*------------------------------------------------------------------------
-¿¼ÊÔ±¨Ãû±íµÄ½¨Á¢     ERS
+ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½     ERS
 ------------------------------------------------------------------------*/
 #if 1
-/*ºê¶¨ÒåºÍ³£±äÁ¿*/
-//ºê¶¨ÒåÍË³öºÍ¼ÌÐø
+/*ï¿½ê¶¨ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½ï¿½*/
+//ï¿½ê¶¨ï¿½ï¿½ï¿½Ë³ï¿½ï¿½Í¼ï¿½ï¿½ï¿½
 #define ERS_QUIT 0
 #define ERS_CONTINUE 1
-//Êä³ö±í¸ñµÄ¿í¶È
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½
 const int ERS_TABLE_WIDTH_no = 10;
 const int ERS_TABLE_WIDTH_name = 12;
 const int ERS_TABLE_WIDTH_sex = 8;
 const int ERS_TABLE_WIDTH_age = 8;
 const int ERS_TABLE_WIDTH_pick = 20;
-//Êä³öÓï¾ä
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 const char *ERS_menu[] = {
     "1.Insert (by location)",
     "2.Insert (by number)",
@@ -694,7 +694,7 @@ const char *ERS_key = "012345670";
 const char *ERS_order = "0-7";
 const char *ERS_title = "please choose the option";
 
-//ÉùÃ÷
+//ï¿½ï¿½ï¿½ï¿½
 typedef class ExaminationRegistrationSystem
 {
 private:
@@ -710,7 +710,7 @@ public:
     void output_student(const STUDENT &stu);
 } ERS;
 
-int operation(char sel, ERS &ers) //ÐÞ¸ÄmenuÐèÒªÐÞ¸ÄµÄº¯Êý    Ö÷Ìå²»ÐèÒªÐÞ¸Ä
+int operation(char sel, ERS &ers) //ï¿½Þ¸ï¿½menuï¿½ï¿½Òªï¿½Þ¸ÄµÄºï¿½ï¿½ï¿½    ï¿½ï¿½ï¿½å²»ï¿½ï¿½Òªï¿½Þ¸ï¿½
 {
     switch (sel)
     {
@@ -736,7 +736,7 @@ int operation(char sel, ERS &ers) //ÐÞ¸ÄmenuÐèÒªÐÞ¸ÄµÄº¯Êý    Ö÷Ìå²»ÐèÒªÐÞ¸Ä
     case ('2'):
     {
         STUDENT temp_stu;
-        ers.SL.Sort(); //ÐèÒªÏÈÅÅÐò
+        ers.SL.Sort(); //ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         cout << "Please enter the test number, name, gender, age and type of candidate to be inserted: " << endl;
         cin >> temp_stu;
         ers.SL.ListInsert_by_no(temp_stu);
@@ -837,7 +837,7 @@ int operation(char sel, ERS &ers) //ÐÞ¸ÄmenuÐèÒªÐÞ¸ÄµÄº¯Êý    Ö÷Ìå²»ÐèÒªÐÞ¸Ä
     return ERS_CONTINUE;
 }
 
-//ÊµÏÖ
+//Êµï¿½ï¿½
 void ERS::output_student(const STUDENT &stu)
 {
 
@@ -892,9 +892,9 @@ ERS::ExaminationRegistrationSystem(const char **menu, const char *key, const cha
         char sel;
         cout << endl;
         this->display_table();
-        sel = simple_menu.display_menu(); //µ÷ÓÃmenu
+        sel = simple_menu.display_menu(); //ï¿½ï¿½ï¿½ï¿½menu
         if (operation(sel, *this) == ERS_QUIT)
-            break; //operationÎª¾ßÌåÖ´ÐÐ³ÌÐò
+            break; //operationÎªï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð³ï¿½ï¿½ï¿½
     }
 }
 
